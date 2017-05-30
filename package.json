@@ -1,0 +1,50 @@
+{
+  "name": "TravelSecure-Mongo",
+  "version": "3.3.7+1",
+  "homepage": "https://sleepy-springs-57038.herokuapp.com/",
+  "author": "Omar Patel",
+  "license": {
+    "type": "MIT"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "browser-sync": "^2.13.0",
+    "chai": "^4.0.0",
+    "font-awesome": "^4.6.3",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-header": "^1.8.7",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "jquery": "^1.11.3",
+    "sinon": "^2.3.2",
+    "sinon-mongoose": "^2.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OSP123/TravelSecure-Mongo.git"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.17.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.2",
+    "method-override": "^2.3.8",
+    "mongoose": "^4.10.0",
+    "morgan": "^1.8.1",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  },
+  "engines": {
+    "node": "7.8.0"
+  }
+}
