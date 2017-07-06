@@ -42,6 +42,11 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(authCheck);
 
+// Main "/" Route. This will redirect the user to our rendered React application
+app.get("/", function(req, res) {
+  res.sendFile(__dirname + "/public/index.html");
+});
+
 require('./routes')(app);
 
 //Set up default mongoose connection
