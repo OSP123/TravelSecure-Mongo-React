@@ -8,7 +8,7 @@ body {
   height: 100%;
   font-family: "Lora", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: white;
-  background-color: white;
+  background-color: black;
 }
 html {
   width: 100%;
@@ -67,6 +67,13 @@ a:focus {
   color: white;
   background-color: rgba(255, 255, 255, 0.2);
   font-size: 12px;
+  float: left;
+  margin-left: 15px;
+  background: none;
+}
+
+.fa-bars {
+  font-size: 2.3em;
 }
 .navbar-custom .navbar-toggle:focus,
 .navbar-custom .navbar-toggle:active {
@@ -303,10 +310,6 @@ body {
   width: 2em;
 }
 
-.navbar {
-  background: #03a9f4;
-}
-
 .navbar-brand {
   padding: 0;
   padding-top: 10px;
@@ -430,4 +433,73 @@ p {
   font-size: 12px;
 }
 
+.content {
+    padding-top: 30px;
+}
 /* Login CSS End */
+
+/* Testimonials */
+.testimonials blockquote {
+    background: #f8f8f8 none repeat scroll 0 0;
+    border: medium none;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 15px;
+    position: relative;
+}
+.testimonials blockquote::before {
+    width: 0; 
+    height: 0;
+  right: 0;
+  bottom: 0;
+  content: " "; 
+  display: block; 
+  position: absolute;
+    border-bottom: 20px solid #fff;    
+  border-right: 0 solid transparent;
+  border-left: 15px solid transparent;
+  border-left-style: inset; /*FF fixes*/
+  border-bottom-style: inset; /*FF fixes*/
+}
+.testimonials blockquote::after {
+    width: 0;
+    height: 0;
+    right: 0;
+    bottom: 0;
+    content: " ";
+    display: block;
+    position: absolute;
+    border-style: solid;
+    border-width: 20px 20px 0 0;
+    border-color: #e63f0c transparent transparent transparent;
+}
+.testimonials .carousel-info img {
+    border: 1px solid #f5f5f5;
+    border-radius: 150px !important;
+    height: 75px;
+    padding: 3px;
+    width: 75px;
+}
+.testimonials .carousel-info {
+    overflow: hidden;
+}
+.testimonials .carousel-info img {
+    margin-right: 15px;
+}
+.testimonials .carousel-info span {
+    display: block;
+}
+.testimonials span.testimonials-name {
+    color: #e6400c;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 23px 0 7px;
+}
+.testimonials span.testimonials-post {
+    color: #656565;
+    font-size: 12px;
+}
+/* End Testimonials */
+

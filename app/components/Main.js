@@ -1,5 +1,6 @@
 // Include React
 import React, { Component } from 'react';
+import Nav from './children/Nav';
 
 // Here we include all of the sub-components
 // var Form = require("./children/Form");
@@ -10,10 +11,11 @@ import React, { Component } from 'react';
 // var helpers = require("./utils/helpers");
 
 // Creating the Main component
-class Main extends Component {
+export default class Main extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <header className="intro">
             <div className="intro-body">
                 <div className="container">
@@ -39,21 +41,37 @@ class Main extends Component {
         <section id="about" className="container content-section text-center">
             <div className="row">
                 <div className="col-lg-8 col-lg-offset-2">
-                    <h2>About Grayscale</h2>
-                    <p>Grayscale is a free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, simply download the template on <a href="http://startbootstrap.com/template-overviews/grayscale/">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p>
-                    <p>This theme features stock photos by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Maps skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                    <p>Grayscale includes full HTML, CSS, and custom JavaScript files along with LESS files for easy customization.</p>
+                    <h2>Hello Traveler</h2>
+                    <p>Beard vegan intelligentsia master cleanse bushwick mlkshk, vaporware dreamcatcher letterpress whatever art party hammock artisan roof party. Disrupt authentic 90's, green juice mlkshk palo santo kickstarter vexillologist post-ironic lyft biodiesel fam fingerstache pour-over. Jean shorts forage occupy fam tumblr. Air plant fanny pack yr, twee art party banjo squid flannel taxidermy. Selfies actually single-origin coffee twee vegan fashion axe hoodie venmo shoreditch before they sold out fanny pack lyft aesthetic. Leggings keytar literally hashtag, taxidermy pug thundercats palo santo asymmetrical XOXO flexitarian aesthetic meggings +1. Waistcoat semiotics biodiesel, bushwick etsy hot chicken vinyl craft beer VHS hashtag prism ugh literally knausgaard kitsch. Chartreuse mixtape post-ironic, drinking vinegar taiyaki fashion axe flexitarian poutine. Shabby chic air plant cred, skateboard pour-over whatever freegan portland keytar jean shorts beard 90's drinking vinegar williamsburg.</p>
                 </div>
             </div>
         </section>
 
-        <section id="download" className="content-section text-center">
+        <section id="user-comments" className="content-section text-center">
             <div className="download-section">
                 <div className="container">
                     <div className="col-lg-8 col-lg-offset-2">
-                        <h2>Download Grayscale</h2>
-                        <p>You can download Grayscale for free on the preview page at Start Bootstrap.</p>
-                        <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                        <h2>TravelSafe User Comments</h2>
+                        <p>Without your journeys, we would be lost</p>
+                        <p>Thank you for letting us help you be safe in your travels.</p>
+                        <div class="container content">
+                            <div class="row">
+                                <div class="col-md-6 col-md-offset-3">
+                                    <div class="testimonials">
+                                        <div class="active item">
+                                          <blockquote><p>Denim you probably haven't heard of. Lorem ipsum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met.</p></blockquote>
+                                          <div class="carousel-info">
+                                            <img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" class="pull-left" />
+                                            <div class="pull-left">
+                                              <span class="testimonials-name">Lina Mars</span>
+                                              <span class="testimonials-post">Commercial Director</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,6 +110,3 @@ class Main extends Component {
     );
   }
 }
-
-// Export the component back for use in other files
-module.exports = Main;
