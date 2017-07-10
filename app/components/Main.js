@@ -16,6 +16,7 @@ export default class Main extends Component {
     return (
       <div>
         <Nav />
+        
         <header className="intro">
             <div className="intro-body">
                 <div className="container">
@@ -54,17 +55,17 @@ export default class Main extends Component {
                         <h2>TravelSafe User Comments</h2>
                         <p>Without your journeys, we would be lost</p>
                         <p>Thank you for letting us help you be safe in your travels.</p>
-                        <div class="container content">
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-3">
-                                    <div class="testimonials">
-                                        <div class="active item">
+                        <div className="container content">
+                            <div className="row">
+                                <div className="col-md-6 col-md-offset-3">
+                                    <div className="testimonials">
+                                        <div className="active item">
                                           <blockquote><p>Denim you probably haven't heard of. Lorem ipsum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met.</p></blockquote>
-                                          <div class="carousel-info">
-                                            <img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" class="pull-left" />
-                                            <div class="pull-left">
-                                              <span class="testimonials-name">Lina Mars</span>
-                                              <span class="testimonials-post">Commercial Director</span>
+                                          <div className="carousel-info">
+                                            <img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" className="pull-left" />
+                                            <div className="pull-left">
+                                              <span className="testimonials-name">Lina Mars</span>
+                                              <span className="testimonials-post">Commercial Director</span>
                                             </div>
                                           </div>
                                         </div>

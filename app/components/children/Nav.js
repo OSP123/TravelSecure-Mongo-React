@@ -20,16 +20,16 @@ export default class Nav extends Component {
                   <li>
                       <a className="page-scroll" href="/pricing/">Pricing</a>
                   </li>
-                      <li>
-                          <a className="page-scroll" href="/trips/">My Trips</a>
-                      </li>
-                      <li>
-                          <a href="/users/sign-out" className="page-scroll" data-toggle="modal">Logout</a>
-                      </li>
-                  
-                      <li>
-                          <a className="page-scroll" data-toggle="modal" data-target="#login-modal">Login</a>
-                      </li>
+                  <li>
+                      <a className="page-scroll" href="/trips/">My Trips</a>
+                  </li>
+                  <li>
+                      <a href="/users/sign-out" className="page-scroll" data-toggle="modal">Logout</a>
+                  </li>
+              
+                  <li>
+                      <a className="page-scroll" data-toggle="modal" data-target="#login-modal">Login</a>
+                  </li>
               </ul>
           </div>
         </div>
