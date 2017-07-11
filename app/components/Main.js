@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import Nav from './children/Nav';
 
+require('./main.css');
+
 // Here we include all of the sub-components
 // var Form = require("./children/Form");
 // var Results = require("./children/Results");
@@ -31,7 +33,9 @@ export default class Main extends Component {
                                 <p>Highly customized for each, specific region, using security data for the locations you'll be traveling to.</p>
                             </ul>
                             <a href="#about" className="btn btn-circle page-scroll">
-                                <i className="fa fa-angle-double-down animated"></i>
+                                <i className="fa down-arrow animated">
+                                   <img className="down-arrow" src={require("../img/HomeDown.png")} alt="Down Arrow" />
+                                </i>
                             </a>
                         </div>
                     </div>
