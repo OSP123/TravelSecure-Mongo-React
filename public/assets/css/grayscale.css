@@ -29,6 +29,7 @@ h6 {
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
   letter-spacing: 1px;
+  color: rgb(252, 97, 0);
 }
 p {
   margin: 0 0 25px;
@@ -158,9 +159,7 @@ a:focus {
     transform: scale(1);
   }
 }
-.content-section {
-  padding-top: 100px;
-}
+
 .download-section {
   width: 100%;
   padding: 50px 0;
@@ -173,14 +172,6 @@ a:focus {
   -o-background-size: cover;
 }
 
-@media (min-width: 767px) {
-  .content-section {
-    padding-top: 250px;
-  }
-  .download-section {
-    padding: 100px 0;
-  }
-}
 .btn {
   text-transform: uppercase;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;

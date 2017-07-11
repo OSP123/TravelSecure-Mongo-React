@@ -48,6 +48,7 @@ export default class Main extends Component {
                 <div className="col-lg-8 col-lg-offset-2">
                     <h2>Hello Traveler</h2>
                     <p>Beard vegan intelligentsia master cleanse bushwick mlkshk, vaporware dreamcatcher letterpress whatever art party hammock artisan roof party. Disrupt authentic 90's, green juice mlkshk palo santo kickstarter vexillologist post-ironic lyft biodiesel fam fingerstache pour-over. Jean shorts forage occupy fam tumblr. Air plant fanny pack yr, twee art party banjo squid flannel taxidermy. Selfies actually single-origin coffee twee vegan fashion axe hoodie venmo shoreditch before they sold out fanny pack lyft aesthetic. Leggings keytar literally hashtag, taxidermy pug thundercats palo santo asymmetrical XOXO flexitarian aesthetic meggings +1. Waistcoat semiotics biodiesel, bushwick etsy hot chicken vinyl craft beer VHS hashtag prism ugh literally knausgaard kitsch. Chartreuse mixtape post-ironic, drinking vinegar taiyaki fashion axe flexitarian poutine. Shabby chic air plant cred, skateboard pour-over whatever freegan portland keytar jean shorts beard 90's drinking vinegar williamsburg.</p>
+                    <button className="btn" >Get Started</button>
                 </div>
             </div>
         </section>
