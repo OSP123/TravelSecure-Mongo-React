@@ -50,3 +50,15 @@
     padding: 100px 0;
   }
 }
+
+.user-feedback-section {
+  width: 100%;
+  padding: 50px 0;
+  color: white;
+  background: url(../img/Search.jpeg) no-repeat center center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
