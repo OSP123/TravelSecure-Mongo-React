@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import Nav from './children/Nav';
 
+require('./main.css');
+
 // Here we include all of the sub-components
 // var Form = require("./children/Form");
 // var Results = require("./children/Results");
@@ -31,7 +33,9 @@ export default class Main extends Component {
                                 <p>Highly customized for each, specific region, using security data for the locations you'll be traveling to.</p>
                             </ul>
                             <a href="#about" className="btn btn-circle page-scroll">
-                                <i className="fa fa-angle-double-down animated"></i>
+                                <i className="fa down-arrow animated">
+                                   <img className="down-arrow" src={require("../img/shapes/HomeDown.png")} alt="Down Arrow" />
+                                </i>
                             </a>
                         </div>
                     </div>
@@ -44,12 +48,13 @@ export default class Main extends Component {
                 <div className="col-lg-8 col-lg-offset-2">
                     <h2>Hello Traveler</h2>
                     <p>Beard vegan intelligentsia master cleanse bushwick mlkshk, vaporware dreamcatcher letterpress whatever art party hammock artisan roof party. Disrupt authentic 90's, green juice mlkshk palo santo kickstarter vexillologist post-ironic lyft biodiesel fam fingerstache pour-over. Jean shorts forage occupy fam tumblr. Air plant fanny pack yr, twee art party banjo squid flannel taxidermy. Selfies actually single-origin coffee twee vegan fashion axe hoodie venmo shoreditch before they sold out fanny pack lyft aesthetic. Leggings keytar literally hashtag, taxidermy pug thundercats palo santo asymmetrical XOXO flexitarian aesthetic meggings +1. Waistcoat semiotics biodiesel, bushwick etsy hot chicken vinyl craft beer VHS hashtag prism ugh literally knausgaard kitsch. Chartreuse mixtape post-ironic, drinking vinegar taiyaki fashion axe flexitarian poutine. Shabby chic air plant cred, skateboard pour-over whatever freegan portland keytar jean shorts beard 90's drinking vinegar williamsburg.</p>
+                    <button className="btn" >Get Started</button>
                 </div>
             </div>
         </section>
 
         <section id="user-comments" className="content-section text-center">
-            <div className="download-section">
+            <div className="user-feedback-section">
                 <div className="container">
                     <div className="col-lg-8 col-lg-offset-2">
                         <h2>TravelSafe User Comments</h2>
@@ -77,30 +82,6 @@ export default class Main extends Component {
                 </div>
             </div>
         </section>
-
-        <section id="contact" className="container content-section text-center">
-            <div className="row">
-                <div className="col-lg-8 col-lg-offset-2">
-                    <h2>Contact Start Bootstrap</h2>
-                    <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                    <p><a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-                    </p>
-                    <ul className="list-inline banner-social-buttons">
-                        <li>
-                            <a href="https://twitter.com/SBootstrap" className="btn btn-default btn-lg"><i className="fa fa-twitter fa-fw"></i> <span className="network-name">Twitter</span></a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/IronSummitMedia/startbootstrap" className="btn btn-default btn-lg"><i className="fa fa-github fa-fw"></i> <span className="network-name">Github</span></a>
-                        </li>
-                        <li>
-                            <a href="https://plus.google.com/+Startbootstrap/posts" className="btn btn-default btn-lg"><i className="fa fa-google-plus fa-fw"></i> <span className="network-name">Google+</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <div id="map"></div>
 
         <footer>
             <div className="container text-center">

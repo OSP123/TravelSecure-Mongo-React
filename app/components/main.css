@@ -1,0 +1,64 @@
+.down-arrow {
+	width: 45px;
+  height: 45px;
+	max-width: 100%;
+}
+
+.intro {
+  display: table;
+  width: 100%;
+  height: auto;
+  padding: 2% 0;
+  text-align: center;
+  color: white;
+  background: url(../img/home.jpeg) no-repeat center scroll;
+  background-color: black;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  background-size: 100%;
+  -o-background-size: 100%;
+}
+
+.intro .intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+.intro .intro-body .brand-heading {
+  font-size: 40px;
+}
+.intro .intro-body .intro-text {
+  font-size: 18px;
+}
+@media (min-width: 768px) {
+  .intro {
+    height: 100%;
+    padding: 0;
+  }
+  .intro .intro-body .brand-heading {
+    font-size: 100px;
+  }
+  .intro .intro-body .intro-text {
+    font-size: 26px;
+  }
+}
+
+@media (min-width: 767px) {
+  .content-section {
+    padding-top: 250px;
+  }
+  .download-section {
+    padding: 100px 0;
+  }
+}
+
+.user-feedback-section {
+  width: 100%;
+  padding: 50px 0;
+  color: white;
+  background: url(../img/Search.jpeg) no-repeat center center scroll;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
