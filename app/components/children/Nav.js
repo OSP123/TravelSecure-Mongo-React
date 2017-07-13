@@ -23,19 +23,19 @@ export default class Nav extends Component {
                   </li>
                   
                   <li>
-                      <a className="page-scroll" href="/pricing/"><p>ABOUT US</p></a>
+                      <a className="page-scroll nav-left-text" href="/pricing/"><p>ABOUT US</p></a>
                   </li>
                   <li>
-                      <a className="page-scroll" href="/trips/"><p>PRICING</p></a>
+                      <a className="page-scroll nav-left-text" href="/trips/"><p>PRICING</p></a>
                   </li>
                   <li>
-                      <a href="/users/sign-out" className="page-scroll" data-toggle="modal"><p>SIGN UP</p></a>
+                      <a className="page-scroll nav-left-text" href="/users/sign-out" data-toggle="modal"><p>SIGN UP</p></a>
                   </li>
                   <li>
-                      <a href="/users/sign-out" className="page-scroll" data-toggle="modal"><p>CONTACT US</p></a>
+                      <a className="page-scroll nav-left-text" href="/users/sign-out" data-toggle="modal"><p>CONTACT US</p></a>
                   </li>
                   <li>
-                      <a className="page-scroll" data-toggle="modal" data-target="#login-modal"><p>REVIEWS</p></a>
+                      <a className="page-scroll nav-left-text" data-toggle="modal" data-target="#login-modal"><p>REVIEWS</p></a>
                   </li>
               </ul>
           </div>
@@ -46,17 +46,28 @@ export default class Nav extends Component {
                   </li>
                   
                   <li>
-                      <a className="page-scroll" href="/pricing/"><img className="navigation-icons" src={require("../../img/shapes/Profile.png")} /><p>PROFILE</p></a>
+                      <a className="page-scroll nav-right-text" href="/pricing/">
+                        <img className="navigation-icons" src={require("../../img/shapes/Profile.png")} />
+                        <p>PROFILE</p>
+                      </a>
                   </li>
                   <li>
-                      <a className="page-scroll" href="/trips/"><img className="navigation-icons" src={require("../../img/shapes/offline.png")} /><p>OFFLINE MODE</p></a>
+                      <a className="page-scroll nav-right-text" href="/trips/">
+                        <img className="navigation-icons" src={require("../../img/shapes/offline.png")} />
+                        <p>OFFLINE MODE</p>
+                      </a>
                   </li>
                   <li>
-                      <a href="/users/sign-out" className="page-scroll" data-toggle="modal"><img className="navigation-icons" src={require("../../img/shapes/search.png")} /><p>SEARCH LOCATION</p></a>
+                      <a className="page-scroll nav-right-text" href="/users/sign-out" data-toggle="modal">
+                        <img className="navigation-icons" src={require("../../img/shapes/search.png")} />
+                        <p>SEARCH LOCATION</p>
+                      </a>
                   </li>
-              
                   <li>
-                      <a className="page-scroll" data-toggle="modal" data-target="#login-modal"><img className="navigation-icons" src={require("../../img/shapes/itinerary.png")} /><p>ITINERARY</p></a>
+                      <a className="page-scroll nav-right-text" data-toggle="modal" data-target="#login-modal">
+                        <img className="navigation-icons" src={require("../../img/shapes/itinerary.png")} />
+                        <p>ITINERARY</p>
+                      </a>
                   </li>
               </ul>
           </div>

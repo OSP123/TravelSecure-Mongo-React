@@ -118,7 +118,7 @@
     background-color: transparent;
   }
 
-  .page-scroll p {
+  .nav-right-text p {
     color: rgb(252, 97, 0);
   }
 }
@@ -140,7 +140,7 @@
     background-color: transparent;
   }
 
-  .page-scroll p {
+  .nav-right-text p, .nav-left-text p {
     font-size: 12px;
   }
 
