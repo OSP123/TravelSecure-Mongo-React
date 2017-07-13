@@ -8,6 +8,10 @@
   text-align: center;
 }
 
+.nav-container {
+  text-align: center;
+}
+
 .navbar-custom {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -42,10 +46,7 @@
 .navbar-custom .navbar-brand:focus {
   outline: none;
 }
-.navbar-nav {
-  background: white;
-  margin: 0 -15px;
-}
+
 .navbar-custom a {
   color: rgb(57, 172, 233);
 }
@@ -59,11 +60,6 @@
   -webkit-transition: background 0.3s ease-in-out;
   -moz-transition: background 0.3s ease-in-out;
   transition: background 0.3s ease-in-out;
-}
-.navbar-custom .nav li a:hover {
-  color: rgba(0, 0, 0, 0.8);
-  outline: none;
-  background-color: transparent;
 }
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li a:active {
@@ -110,6 +106,21 @@
   .icon-middle-nav-desktop {
     display: none;
   }
+
+  .navbar-nav {
+    background: white;
+    margin: 0 -15px;
+  }
+
+  .navbar-custom .nav li a:hover {
+    color: rgba(0, 0, 0, 0.8);
+    outline: none;
+    background-color: transparent;
+  }
+
+  .page-scroll p {
+    color: rgb(252, 97, 0);
+  }
 }
 
 @media (min-width: 768px) {
@@ -118,11 +129,26 @@
   }
 
   .icon-middle-nav-desktop {
-    width: 20%;
-    float: left;
-    text-align: center;
-    position: relative;
-    left: 7%;
-    margin-top: 22px;
+    height: 50px;
+    display: inline-block;
+    margin: 0 auto;
   }
+
+  .navbar-custom .nav li a:hover {
+    color: white;
+    outline: none;
+    background-color: transparent;
+  }
+
+  .page-scroll p {
+    font-size: 12px;
+  }
+
+  .navigation-icons {
+    display: none;
+  }
+}
+
+.navigation-icons {
+  height: 34px;
 }
