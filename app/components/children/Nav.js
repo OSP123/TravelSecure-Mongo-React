@@ -10,10 +10,10 @@ export default class Nav extends Component {
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i className="fa fa-bars"></i>
             </button>
-            <div className="icon-middle-nav-mobile">Butt</div>
             <button type="button" className="navbar-toggle navbar-toggle-right" data-toggle="collapse" data-target=".navbar-main-collapse1">
                 <i className="glyphicon glyphicon-plus"></i>
             </button>
+            <img className="icon-middle-nav-mobile" src={require("../../img/shapes/shape.png")} />
           </div>
 
           <div className="collapse navbar-collapse navbar-left navbar-main-collapse">

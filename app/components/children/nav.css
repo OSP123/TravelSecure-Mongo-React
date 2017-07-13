@@ -4,12 +4,17 @@
   width: 200px;
 }
 
+.navbar-header {
+  text-align: center;
+}
+
 .navbar-custom {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: black;
 }
+
 .navbar-custom .navbar-toggle {
   color: white;
   background-color: rgba(255, 255, 255, 0.2);
@@ -17,6 +22,7 @@
   float: left;
   margin-left: 15px;
   background: none;
+  margin-top: 21px;
 }
 
 .navbar-custom .navbar-toggle-right {
@@ -96,12 +102,9 @@
 
 @media (max-width: 768px) {
   .icon-middle-nav-mobile {
-    width: 20%;
-    float: left;
-    text-align: center;
-    position: relative;
-    left: 25%;
-    margin-top: 22px;
+    height: 85px;
+    display: inline-block;
+    margin: 0 auto;
   }
 
   .icon-middle-nav-desktop {
