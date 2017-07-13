@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 // Include the main Main Component
-import Router from './components/Router';
+import MainRouter from './components/MainRouter';
 
 // This code here allows us to render our main component (in this case Main)
-ReactDOM.render(<Router />, document.getElementById("app"));
+ReactDOM.render(<MainRouter />, document.getElementById("app"));

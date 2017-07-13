@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
 require('./nav.css');
 
 export default class Nav extends Component { 
@@ -29,7 +31,7 @@ export default class Nav extends Component {
                       <a className="page-scroll nav-left-text" href="/trips/"><p>PRICING</p></a>
                   </li>
                   <li>
-                      <a className="page-scroll nav-left-text" href="/users/sign-out" data-toggle="modal"><p>SIGN UP</p></a>
+                      <Link to={"/login"} ><div className="page-scroll nav-left-text" href="/login" data-toggle="modal"><p>LOGIN</p></div></Link>
                   </li>
                   <li>
                       <a className="page-scroll nav-left-text" href="/users/sign-out" data-toggle="modal"><p>CONTACT US</p></a>
