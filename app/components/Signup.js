@@ -21,8 +21,10 @@ export default class Signup extends Component {
 
     this.handleUsernameValidation = this.handleUsernameValidation.bind(this);
     this.handlePasswordValidation = this.handlePasswordValidation.bind(this);
+    this.handlePasswordRepeat = this.handlePasswordRepeat.bind(this);
     this.handleEmailValidation = this.handleEmailValidation.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleEmailRepeat = this.handleEmailRepeat.bind(this);
+    this.signUpUser = this.signUpUser.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -51,50 +53,109 @@ export default class Signup extends Component {
 
 	handlePasswordValidation(event) {
 
-	// password is passed in
-	const passwordVal = this.refs.password.value;
-	const passwordForm = this.refs.passwordForm;
+		// password is passed in
+		const passwordVal = this.refs.password.value;
+		const passwordForm = this.refs.passwordForm;
+		const passwordFeedback = this.refs.passwordFeedback;
 
-	this.setState({
-      'password': value
-  });
+		this.setState({
+	  	'password': passwordVal
+	  });
 
-	const passwordRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
-    if (!passwordRegEx.test(passwordVal)) {
-      $("#password-form").removeClass("has-success");
+		const passwordRegEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,}$/;
+	  if (!passwordRegEx.test(passwordVal)) {
+	    passwordForm.classList.remove("has-success");
+	    passwordForm.classList.add("has-error");
+	    passwordFeedback.textContent = "Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character and must be at least 8 characters long.";
+	  } else {
+	    passwordForm.classList.remove("has-error");
 
-      $("#password-form").addClass("has-error");
-      $("#password-feedback").text("Password must contain at least 1 lowercase letter, 1 uppercase letter, 1 number, 1 special character and must be at least 8 characters long.");
+	    passwordForm.classList.add("has-success");
+	    passwordFeedback.textContent = "Password set correctly!";    
+	  }
+	}
+
+	handlePasswordRepeat(event) {
+		const passwordVal = this.state.password;
+		const passwordRepeat = this.refs.repeatPassword.value;
+		const repeatPasswordForm = this.refs.repeatPasswordForm;
+		const repeatPasswordFeedback = this.refs.repeatPasswordFeedback;
+
+		this.setState({
+	  	'passwordRepeat': passwordRepeat
+	  });
+
+		if (passwordVal !== passwordRepeat) {
+      repeatPasswordForm.classList.remove("has-success");
+
+      repeatPasswordForm.classList.add("has-error");
+      repeatPasswordFeedback.textContent = "Passwords Don't Match";
     } else {
-      $("#password-form").removeClass("has-error");
+      repeatPasswordForm.classList.remove("has-error");
 
-      $("#password-form").addClass("has-success");
-      $("#password-feedback").text("Password set correctly!");    
+      repeatPasswordForm.classList.add("has-success");
+      repeatPasswordFeedback.textContent = "Passwords Match!";    
     }
-  }
+	}
 
  	handleEmailValidation(event) {
 
-    this.setState({
-      [name]: value
+ 		const emailVal = this.refs.email.value;
+ 		const emailForm = this.refs.emailForm;
+ 		const emailFeedback = this.refs.emailFeedback;
+ 		const emailAdditionalFeedback = this.refs.emailAdditionalFeedback;
+	  const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+	  this.setState({
+      'email': emailVal
     });
+
+	  if (!emailRegEx.test(emailVal)) {
+      emailForm.classList.remove("has-success");
+
+      emailForm.classList.add("has-error");
+      emailFeedback.textContent = "Invalid Email";
+      emailAdditionalFeedback.textContent = "Ex: someone@example.com";
+    
+    } else {
+      emailForm.classList.remove("has-error");
+
+      emailForm.classList.add("has-success");
+      emailFeedback.textContent = "Valid Email!";
+      emailAdditionalFeedback.textContent = "";
+    }
   }
 
-  handleChange(event) {
-    this.setState({
-      [name]: value
+  handleEmailRepeat(event) {
+
+ 		const emailVal = this.refs.emailRepeat.value;
+ 		const emailForm = this.refs.emailRepeatForm;
+ 		const emailFeedback = this.refs.emailRepeatFeedback;
+	  const emailRegEx = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+	  this.setState({
+      'emailRepeat': emailVal
     });
+
+	  if (!emailRegEx.test(emailVal)) {
+      emailForm.classList.remove("has-success");
+
+      emailForm.classList.add("has-error");
+      emailFeedback.textContent = "Emails Don't Match";
+    
+    } else {
+      emailForm.classList.remove("has-error");
+
+      emailForm.classList.add("has-success");
+      emailFeedback.textContent = "Emails Match!";
+    }
   }
 
-
-	handleSubmit(event) {
-		event.preventDefault();
-		console.log(this);
-
-		axios.post("/users/signup", {
+  signUpUser(username, email, password) {
+  	axios.post("/users/signup", {
       username: this.refs.username.value,
       email: this.refs.email.value,
-      password: this.password.email.value
+      password: this.refs.password.value
     }).then(function(data) {
       if (data.duplicateUser) {
         // Replace with Modal
@@ -104,6 +165,36 @@ export default class Signup extends Component {
       }
     }).catch(function(err) {
       console.log(err);
+    });
+  }
+
+	handleSubmit(event) {
+		event.preventDefault();
+
+  	const username = this.state.username;
+  	const email = this.state.email;
+  	const password = this.state.password;
+
+		let userData = {
+      username: username,
+      email: email,
+      password: password
+    };
+
+    if (!userData.username || !userData.email || !userData.password) {
+      return alert("Please don't leave fields blank");
+    }
+
+    // If we have an email and password, run the signUpUser function
+    this.signUpUser(userData.username, userData.email, userData.password);
+
+    this.setState({
+      value: '',
+    	username: '',
+    	password: '',
+    	passwordRepeat: '',
+    	email: '',
+    	emailRepeat: ''
     });
 	}
 
@@ -127,26 +218,26 @@ export default class Signup extends Component {
 								<div id="password-form" className="form-group col-lg-12" ref="passwordForm">
 									<label>Password</label>
 									<input type="password" name="" ref="password" className="form-control" id="password-input" value={this.state.password} onChange={this.handlePasswordValidation} />
-									<small id="password-feedback" ref="password-feedback" className=""></small>
+									<small id="password-feedback" ref="passwordFeedback" className=""></small>
 								</div>
 								
 								<div id="repeat-password-form" className="form-group col-lg-12" ref="repeatPasswordForm">
 									<label>Repeat Password</label>
-									<input type="password" name="" ref="repeat-password" className="form-control" id="repeat-password-input" value={this.state.value} onChange={this.handleChange} />
-									<small id="repeat-password-feedback" className="" ref="repeat-password"></small>
+									<input type="password" name="" ref="repeatPassword" className="form-control" id="repeat-password-input" value={this.state.passwordRepeat} onChange={this.handlePasswordRepeat} />
+									<small id="repeat-password-feedback" className="" ref="repeatPasswordFeedback"></small>
 								</div>
 												
 								<div id="email-form" className="form-group col-lg-12" ref="emailForm">
 									<label>Email Address</label>
-									<input type="email" name="" ref="email" className="form-control" id="email-input" value={this.state.value} onChange={this.hanldeEmailValidation} />
+									<input type="email" name="" ref="email" className="form-control" id="email-input" value={this.state.email} onChange={this.handleEmailValidation} />
 
-								  <p id="email-feedback" className=""></p>
+								  <p id="email-feedback" className="" ref="emailFeedback"></p>
 								  <small id="email-additional-feedback" ref="emailAdditionalFeedback" className="form-text text-muted"></small>
 								</div>
 								
 								<div id="email-repeat-form" className="form-group col-lg-12" ref="emailRepeatForm">
 									<label>Repeat Email Address</label>
-									<input type="email" name="" ref="email-repeat" className="form-control" id="repeat-email-input" value={this.state.value} onChange={this.handleChange} />
+									<input type="email" name="" ref="emailRepeat" className="form-control" id="repeat-email-input" value={this.state.emailRepeat} onChange={this.handleEmailRepeat} />
 									<small id="email-repeat-feedback" className="" ref="emailRepeatFeedback"></small>
 								</div>			
 								
