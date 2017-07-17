@@ -15,7 +15,7 @@ export default class Nav extends Component {
             <button type="button" className="navbar-toggle navbar-toggle-right" data-toggle="collapse" data-target=".navbar-main-collapse1">
                 <i className="glyphicon glyphicon-plus"></i>
             </button>
-            <img className="icon-middle-nav-mobile" src={require("../../img/shapes/shape.png")} />
+            <Link to={"/"} ><img className="icon-middle-nav-mobile" src={require("../../img/shapes/shape.png")} /></Link>
           </div>
 
           <div className="collapse navbar-collapse navbar-left navbar-main-collapse">
@@ -73,7 +73,7 @@ export default class Nav extends Component {
                   </li>
               </ul>
           </div>
-          <img className="icon-middle-nav-desktop" src={require("../../img/shapes/shape.png")} />
+          <Link to={"/"} ><img className="icon-middle-nav-desktop" src={require("../../img/shapes/shape.png")} /></Link>
         </div>
       </nav>
     );
