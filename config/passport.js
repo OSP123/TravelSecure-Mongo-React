@@ -6,7 +6,7 @@ var User = require("../models/User.js");
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
-    usernameField: "username",
+    usernameField: 'username',
     passwordField : 'password'
   },
   function(username, password, done) {
@@ -17,7 +17,7 @@ passport.use(new LocalStrategy(
 
       // if no user is found, return the message
       if (!user)
-          return done(null, false);
+          return done(null, false, { found: false});
 
       // if the user is found but the password is wrong
       if (!user.validPassword(password))
