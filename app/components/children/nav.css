@@ -75,25 +75,13 @@
 .navbar-custom .nav li.active a:hover {
   color: white;
 }
-@media (min-width: 768px) {
-  .navbar-custom {
-    padding: 20px 0;
-    border-bottom: none;
-    letter-spacing: 1px;
-    background: transparent;
-    -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-    -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
-  }
-  .navbar-custom.top-nav-collapse {
-    padding: 0;
-    background: black;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  }
-}
 
 .glyphicon-plus {
   font-size: 22px;
+}
+
+.navigation-icons {
+  height: 34px;
 }
 
 @media (max-width: 768px) {
@@ -147,8 +135,29 @@
   .navigation-icons {
     display: none;
   }
+  .navbar-custom {
+    padding: 20px 0;
+    border-bottom: none;
+    letter-spacing: 1px;
+    background: transparent;
+    -webkit-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+  }
+  .navbar-custom.top-nav-collapse {
+    padding: 0;
+    background: black;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
 }
 
-.navigation-icons {
-  height: 34px;
+@media (min-width: 768px) and (max-width: 1200px) {
+  .nav > li > a {
+    padding: 10px 4px;
+    font-size: 10px;
+  }
+
+  .nav-right-text p, .nav-left-text p {
+    font-size: 10px;
+  }
 }

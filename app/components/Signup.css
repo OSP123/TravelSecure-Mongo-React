@@ -1,0 +1,17 @@
+body {
+	color: white;
+}
+
+#registration-container {
+	margin-top: 20%;
+}
+
+@media (min-width: 768px) {
+  #registration-container {
+		margin-top: 10%;
+	}
+}
+
+.container-page {
+	background: grey;
+}
