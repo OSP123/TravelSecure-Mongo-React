@@ -2,17 +2,17 @@ var express = require('express');
 var router  = express.Router();
 
 var passport = require("../config/passport");
-var users_controller = require('../controllers/users_controller');
+var users_api = require('../apis/users_api');
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
-router.get('/signup', users_controller.registrationPage);
+router.get('/signup', users_api.registrationPage);
 
-router.get('/sign-out', users_controller.signOutUser);
+router.get('/sign-out', users_api.signOutUser);
 
-// router.post('/login', , users_controller.loginUser);
+// router.post('/login', , users_api.loginUser);
 
-router.post('/login', passport.authenticate("local"), users_controller.loginUser);
+router.post('/login', passport.authenticate("local"), users_api.loginUser);
 
-router.post('/signup', users_controller.signUpUser);
+router.post('/signup', users_api.signUpUser);
 
 module.exports = router;

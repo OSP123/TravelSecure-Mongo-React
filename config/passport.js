@@ -30,8 +30,8 @@ passport.use(new LocalStrategy(
 ));
 
 passport.serializeUser(function(user, done) {
-        done(null, user.id);
-    });
+    done(null, user.id);
+});
 
 // used to deserialize the user
 passport.deserializeUser(function(id, done) {

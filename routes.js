@@ -5,8 +5,8 @@ module.exports = function(app){
 		var trips = require('./routes/trips');
 		var pricing = require('./routes/pricing');
 
-		app.use('/api/users', users);
-		app.use('/api/trips', trips);
-		app.use('/api/pricing', pricing);
+		app.use('/apis/users', users);
+		app.use('/apis/trips', trips);
+		app.use('/apis/pricing', pricing);
 		//other routes..
 }

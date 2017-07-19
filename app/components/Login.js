@@ -34,10 +34,9 @@ export default class Login extends Component {
   }
 
   loginUser(submitObject) {
-  	axios.post('/api/users/login', submitObject)
+  	axios.post('/apis/users/login', submitObject)
 		.then(function(data) {
-			console.log(data);
-      browserHistory.push(data);
+      sessionStorage.setItem("user", data.data.user);
     }).catch(function(err) {
       console.log(err);
     });

@@ -26,9 +26,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var isAuth 				 = require("./config/middleware/isAuthenticated");
-var authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
-
 // Enable CORS from client-side
 app.use(function(req, res, next) {  
   res.header("Access-Control-Allow-Origin", "*");
@@ -49,7 +46,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(authCheck);
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
