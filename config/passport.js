@@ -1,15 +1,19 @@
-var passport = require("passport");
-var LocalStrategy = require("passport-local").Strategy;
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const jwt = require('jsonwebtoken');
+const config = require('./extra-config');
 
-var User = require("../models/User.js");
+const User = require("../models/User.js");
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
   {
     usernameField: 'username',
-    passwordField : 'password'
-  },
-  function(username, password, done) {
+    passwordField: 'password',
+    session: false,
+    passReqToCallback :true
+  }, 
+  function(req, username, password, done) {
     User.findOne({ 'username' :  username }, function(err, user) {
       // if there are any errors, return the error before anything else
       if (err)
@@ -23,22 +27,33 @@ passport.use(new LocalStrategy(
       if (!user.validPassword(password))
           return done(null, false); // create the loginMessage and save it to session as flashdata
 
+      const payload = {
+        sub: user._id
+      };
+
+       // create a token string
+      const token = jwt.sign(payload, config.jwtSecret);
+      const data = {
+        name: user.name
+      };
+
+      console.log("I'm going through passport.js");
       // all is well, return successful user
-      return done(null, user);
+      return done(null, token, data);
     });
   }
 ));
 
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
-});
+// passport.serializeUser(function(user, done) {
+//     done(null, user.id);
+// });
 
-// used to deserialize the user
-passport.deserializeUser(function(id, done) {
-    User.findById(id, function(err, user) {
-        done(err, user);
-    });
-});
+// // used to deserialize the user
+// passport.deserializeUser(function(id, done) {
+//     User.findById(id, function(err, user) {
+//         done(err, user);
+//     });
+// });
 
 // Exporting our configured passport
 module.exports = passport;

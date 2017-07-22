@@ -5,7 +5,6 @@ var path           = require('path');
 var logger         = require('morgan');
 var cookieParser   = require('cookie-parser'); // for working with cookies
 var bodyParser     = require('body-parser');
-var session        = require('express-session'); 
 var passport 			 = require("./config/passport");
 var config				 = require("./config/extra-config");
 var mongoose 			 = require('mongoose');
@@ -43,9 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
-app.use(passport.session());
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + "/public/index.html");

@@ -1,6 +1,6 @@
 var User       = require('../models/User');
-var isAuth     = require("../config/middleware/isAuthenticated");
-var authCheck  = require('../config/middleware/attachAuthenticationStatus');
+var authCheck  = require('../config/middleware/authCheck');
+const passport = require("passport");
 
 //this is the users_controller.js file
 exports.registrationPage = function(req,res) {
@@ -15,16 +15,37 @@ exports.signOutUser = function(req,res) {
 };
 
 // login
-exports.loginUser = function(req, res) {
-    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
-    // So we're sending the user back the route to the members page because the redirect will happen on the front end
-    // They won't get this or even be able to access this page if they aren't authed
-    console.log(req.user);
-    console.log(req.session);
+exports.loginUser = (req, res, next) => {
 
-    if (authCheck)
-        return res.json({ user: req.session.passport.user});
-    return res.redirect('/login');
+  // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
+  // So we're sending the user back the route to the members page because the redirect will happen on the front end
+  // They won't get this or even be able to access this page if they aren't authed
+
+  return passport.authenticate('local', (err, token, userData) => {
+    if (err) {
+      if (err.name === 'IncorrectCredentialsError') {
+        return res.status(400).json({
+          success: false,
+          message: err.message
+        });
+      }
+
+      return res.status(400).json({
+        success: false,
+        message: 'Could not process the form.'
+      });
+    }
+
+    console.log(token, "this is the token in users_api.js");
+    console.log(userData, "this is the userData in users_api.js");
+
+    return res.json({
+      success: true,
+      message: 'You have successfully logged in!',
+      token,
+      user: userData
+    });
+  })(req, res, next);
 };
 
 // register a user

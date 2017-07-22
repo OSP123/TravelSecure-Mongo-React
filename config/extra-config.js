@@ -1,5 +1,5 @@
 var config = {
-	sessionKey: process.env.sessionKey || "welcomeToThePartyRichter"
+	jwtSecret: process.env.jwtSecret || "welcomeToThePartyRichter"
 }
 
 module.exports = config;
