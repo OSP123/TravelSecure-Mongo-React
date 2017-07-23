@@ -7,7 +7,7 @@ var cookieParser   = require('cookie-parser'); // for working with cookies
 var bodyParser     = require('body-parser');
 var passport 			 = require("./config/passport");
 var config				 = require("./config/extra-config");
-var mongoose 			 = require('mongoose');
+
 
 // Express settings
 // ================
@@ -50,19 +50,8 @@ app.get('*', (req, res) => {
 
 require('./routes')(app);
 
+require('./config/databaseImplementation');
 //Set up default mongoose connection
-var configDB = require('./config/database');
-mongoose.connect(configDB.url);
-
-//Get the default connection
-var db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
