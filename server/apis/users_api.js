@@ -2,13 +2,6 @@ var User       = require('../models/User');
 var authCheck  = require('../config/middleware/authCheck');
 const passport = require("passport");
 
-//this is the users_controller.js file
-exports.registrationPage = function(req,res) {
-	res.render('users/registration', {
-    layout: 'main-registration'
-  });
-};
-
 exports.signOutUser = function(req,res) {
   req.logout();
   res.redirect("/");
