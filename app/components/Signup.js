@@ -152,7 +152,7 @@ export default class Signup extends Component {
   }
 
   signUpUser(username, email, password) {
-  	axios.post("/users/signup", {
+  	axios.post("/apis/users/signup", {
       username: this.refs.username.value,
       email: this.refs.email.value,
       password: this.refs.password.value

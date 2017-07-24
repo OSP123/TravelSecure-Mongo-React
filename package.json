@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "webpack & node server",
-    "start": "node ./bin/www",
+    "start": "node ./server/bin/www",
     "build": "webpack"
   },
   "devDependencies": {
@@ -46,6 +46,7 @@
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.2",
+    "jsonwebtoken": "^7.4.1",
     "method-override": "^2.3.8",
     "mongoose": "^4.10.0",
     "morgan": "^1.8.1",

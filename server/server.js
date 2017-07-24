@@ -5,10 +5,8 @@ var path           = require('path');
 var logger         = require('morgan');
 var cookieParser   = require('cookie-parser'); // for working with cookies
 var bodyParser     = require('body-parser');
-var session        = require('express-session'); 
 var passport 			 = require("./config/passport");
 var config				 = require("./config/extra-config");
-var mongoose 			 = require('mongoose');
 
 // Express settings
 // ================
@@ -26,9 +24,6 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-var isAuth 				 = require("./config/middleware/isAuthenticated");
-var authCheck 		 = require('./config/middleware/attachAuthenticationStatus');
-
 // Enable CORS from client-side
 app.use(function(req, res, next) {  
   res.header("Access-Control-Allow-Origin", "*");
@@ -43,13 +38,9 @@ app.use(function(req, res, next) {
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
-app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
-app.use(passport.session());
-app.use(authCheck);
 
 app.get('*', (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
@@ -57,19 +48,8 @@ app.get('*', (req, res) => {
 
 require('./routes')(app);
 
+require('./config/databaseImplementation');
 //Set up default mongoose connection
-var configDB = require('./config/database');
-mongoose.connect(configDB.url);
-
-//Get the default connection
-var db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
-db.once("open", function() {
-  console.log("Mongoose connection successful.");
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
