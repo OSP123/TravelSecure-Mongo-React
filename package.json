@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "webpack & node server",
-    "start": "node ./server/bin/www",
+    "start": "nodemon ./server/bin/www",
     "build": "webpack"
   },
   "devDependencies": {
