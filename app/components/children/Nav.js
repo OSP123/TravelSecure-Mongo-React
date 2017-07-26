@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Auth from '../utils/Auth';
 
 require('./nav.css');
 
@@ -30,8 +31,17 @@ export default class Nav extends Component {
                   <li>
                       <a className="page-scroll nav-left-text" href="/trips/"><p>PRICING</p></a>
                   </li>
+                  {Auth.isUserAuthenticated() ? (
+                    <li>
+                      <Link to={"/logout"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>LOGOUT</p></div></Link>
+                    </li>
+                  ) : (
+                    <li>
+                      <Link to={"/login"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>LOGIN</p></div></Link>
+                    </li>
+                  )}
                   <li>
-                      <Link to={"/login"} ><div className="page-scroll nav-left-text" href="/login" data-toggle="modal"><p>LOGIN</p></div></Link>
+                      <Link to={"/protected"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>PROTECTED</p></div></Link>
                   </li>
                   <li>
                       <a className="page-scroll nav-left-text" href="/users/sign-out" data-toggle="modal"><p>CONTACT US</p></a>

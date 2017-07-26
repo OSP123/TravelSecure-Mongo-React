@@ -4,6 +4,7 @@ import Nav from './children/Nav';
 import { Link } from 'react-router-dom';
 import Signup from "./Signup";
 import axios from 'axios';
+import Auth from './utils/Auth';
 
 require('./login.css');
 
@@ -13,7 +14,8 @@ export default class Login extends Component {
     super(props);
     this.state = {
     	username: '',
-    	password: ''
+    	password: '',
+      redirectToReferrer: false
     };
 
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
@@ -36,7 +38,8 @@ export default class Login extends Component {
   loginUser(submitObject) {
   	axios.post('/apis/users/login', submitObject)
 		.then(function(data) {
-      sessionStorage.setItem("user", data.data.user);
+      Auth.authenticateUser(data.data.token);
+      this.setState({ redirectToReferrer: true });
       console.log(data);
     }).catch(function(err) {
       console.log(err);
@@ -66,6 +69,15 @@ export default class Login extends Component {
 	}
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { redirectToReferrer } = this.state;
+
+    if (redirectToReferrer) {
+      return (
+        <Redirect to={from}/>
+      )
+    }
+    
     return (
     	<div>
     		<Nav />
