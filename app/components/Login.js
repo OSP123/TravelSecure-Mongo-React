@@ -1,7 +1,7 @@
 // Include React
 import React, { Component } from 'react';
 import Nav from './children/Nav';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Signup from "./Signup";
 import axios from 'axios';
 import Auth from './utils/Auth';
@@ -39,9 +39,12 @@ export default class Login extends Component {
   	axios.post('/apis/users/login', submitObject)
 		.then(function(data) {
       Auth.authenticateUser(data.data.token);
-      this.setState({ redirectToReferrer: true });
+      this.setState({ 
+        redirectToReferrer: true
+      });
       console.log(data);
-    }).catch(function(err) {
+    }.bind(this))
+    .catch(function(err) {
       console.log(err);
     });
 

@@ -1,3 +1,6 @@
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+
 class Auth {
 
   /**
@@ -6,7 +9,7 @@ class Auth {
    * @param {string} token
    */
   static authenticateUser(token) {
-    localStorage.setItem('token', token);
+    sessionStorage.setItem('token', token);
   }
 
   /**
@@ -15,7 +18,7 @@ class Auth {
    * @returns {boolean}
    */
   static isUserAuthenticated() {
-    return localStorage.getItem('token') !== null;
+    return sessionStorage.getItem('token') !== null;
   }
 
   /**
@@ -23,7 +26,8 @@ class Auth {
    *
    */
   static deauthenticateUser() {
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
+    <Redirect to="/" />
   }
 
   /**
@@ -33,7 +37,7 @@ class Auth {
    */
 
   static getToken() {
-    return localStorage.getItem('token');
+    return sessionStorage.getItem('token');
   }
 
 }

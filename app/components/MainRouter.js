@@ -8,7 +8,6 @@ import React, { Component } from 'react';import {
 } from 'react-router-dom'
 import Main from "./Main";
 import Login from "./Login";
-import Logout from "./Logout";
 import Signup from "./Signup";
 import Auth from "./utils/Auth";
 
@@ -34,7 +33,6 @@ export default class MainRouter extends Component {
       	<Switch>
       		<Route exact={true} path="/" component={Main} />
       		<Route exact={true} path="/login" component={Login} />
-          <Route exact={true} path="/logout" component={Logout} />
           <Route exact={true} path="/signup" component={Signup} />
           <PrivateRoute path="/protected" component={Protected}/>
       	</Switch>

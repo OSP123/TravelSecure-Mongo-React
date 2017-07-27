@@ -5,12 +5,43 @@ import Auth from '../utils/Auth';
 require('./nav.css');
 
 export default class Nav extends Component { 
+  constructor(props) {
+    super(props);
+    this.state = {
+      authenticated: ''
+    };
+    this.authChange = this.authChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  authChange() {
+    if (Auth.isUserAuthenticated()) {
+      this.setState({
+        authenticated: true
+      });
+    } else {
+      this.setState({
+        authenticated: false
+      });
+    }
+  }
+
+  handleClick() {
+    const navbarButton = this.refs.navbarButton;
+    const navbar = this.refs.navbar;
+    const navbarDisplayVal =  window.getComputedStyle(navbar).getPropertyValue("display");
+    if (navbarDisplayVal !== 'none') {
+      navbarButton.click();
+    }
+    
+  }
+
   render() {
     return (
       <nav className="navbar navbar-custom navbar-fixed-top" role="navigation">
         <div className="container nav-container">
           <div className="navbar-header">
-            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+            <button ref="navbarButton" type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                 <i className="fa fa-bars"></i>
             </button>
             <button type="button" className="navbar-toggle navbar-toggle-right" data-toggle="collapse" data-target=".navbar-main-collapse1">
@@ -19,35 +50,41 @@ export default class Nav extends Component {
             <Link to={"/"} ><img className="icon-middle-nav-mobile" src={require("../../img/shapes/shape.png")} /></Link>
           </div>
 
-          <div className="collapse navbar-collapse navbar-left navbar-main-collapse">
+          <div ref="navbar" className="collapse navbar-collapse navbar-left navbar-main-collapse">
               <ul className="nav navbar-nav">
                   <li className="hidden">
                       <a href="#page-top"></a>
                   </li>
                   
                   <li>
-                      <a className="page-scroll nav-left-text" href="/pricing/"><p>ABOUT US</p></a>
+                      <a className="page-scroll nav-left-text" onClick={this.handleClick} href="/pricing/"><p>ABOUT US</p></a>
                   </li>
                   <li>
-                      <a className="page-scroll nav-left-text" href="/trips/"><p>PRICING</p></a>
+                      <a className="page-scroll nav-left-text" onClick={this.handleClick} href="/trips/"><p>PRICING</p></a>
                   </li>
                   {Auth.isUserAuthenticated() ? (
-                    <li>
-                      <Link to={"/logout"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>LOGOUT</p></div></Link>
+                    <li data-toggle="collapse" data-target=".navbar-collapse.show">
+                      <a onClick={ () => { 
+                          this.handleClick();
+                          Auth.deauthenticateUser();
+                          this.authChange();
+                        }
+                      }>
+                      <div className="page-scroll nav-left-text" data-toggle="modal"><p>LOGOUT</p></div></a>
                     </li>
                   ) : (
                     <li>
-                      <Link to={"/login"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>LOGIN</p></div></Link>
+                      <Link to={"/login"} onClick={this.handleClick} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>LOGIN</p></div></Link>
                     </li>
                   )}
                   <li>
-                      <Link to={"/protected"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>PROTECTED</p></div></Link>
+                      <Link to={"/protected"} onClick={this.handleClick}><div className="page-scroll nav-left-text" data-toggle="modal"><p>PROTECTED</p></div></Link>
                   </li>
                   <li>
-                      <a className="page-scroll nav-left-text" href="/users/sign-out" data-toggle="modal"><p>CONTACT US</p></a>
+                      <a className="page-scroll nav-left-text" href="/users/sign-out" data-toggle="modal" onClick={this.handleClick}><p>CONTACT US</p></a>
                   </li>
                   <li>
-                      <a className="page-scroll nav-left-text" data-toggle="modal" data-target="#login-modal"><p>REVIEWS</p></a>
+                      <a className="page-scroll nav-left-text" data-toggle="modal" data-target="#login-modal" onClick={this.handleClick}><p>REVIEWS</p></a>
                   </li>
               </ul>
           </div>
