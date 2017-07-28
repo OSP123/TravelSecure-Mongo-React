@@ -33,7 +33,6 @@ export default class Nav extends Component {
     if (navbarDisplayVal !== 'none') {
       navbarButton.click();
     }
-    
   }
 
   render() {

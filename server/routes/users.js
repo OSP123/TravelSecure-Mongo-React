@@ -4,8 +4,6 @@ var router  = express.Router();
 var passport = require("../config/passport");
 var users_api = require('../apis/users_api');
 
-router.get('/sign-out', users_api.signOutUser);
-
 // router.post('/login', , users_api.loginUser);
 
 router.post('/login', users_api.loginUser);

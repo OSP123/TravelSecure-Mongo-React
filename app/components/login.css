@@ -1,32 +1,32 @@
 /* Login CSS Start */
 
 /****** LOGIN MODAL ******/
-.loginmodal-container {
+.login-container {
   color: black;
   padding: 30px;
-  max-width: 350px;
   width: 100% !important;
-  background-color: #F7F7F7;
   margin: 0 auto;
   border-radius: 2px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  margin-top: 11em;
+  margin-top: 6em;
 }
 
-.loginmodal-container h1 {
+.login-container h1 {
   text-align: center;
   font-size: 1.8em;
+  color: white;
+  font-weight: 100;
 }
 
-.loginmodal-container input[type=submit] {
+.login-container input[type=submit] {
   width: 100%;
   display: block;
   margin-bottom: 10px;
   position: relative;
 }
 
-.loginmodal-container input[type=text], input[type=password] {
+.login-container input[type=text], input[type=password] {
   height: 44px;
   font-size: 16px;
   width: 100%;
@@ -41,7 +41,7 @@
   -moz-box-sizing: border-box;
 }
 
-.loginmodal-container input[type=text]:hover, input[type=password]:hover {
+.login-container input[type=text]:hover, input[type=password]:hover {
   border: 1px solid #b9b9b9;
   border-top: 1px solid #a0a0a0;
   -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
