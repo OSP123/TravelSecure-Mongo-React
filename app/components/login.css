@@ -2,7 +2,7 @@
 
 /****** LOGIN MODAL ******/
 .login-container {
-  color: black;
+  color: white;
   padding: 30px;
   width: 100% !important;
   margin: 0 auto;
@@ -13,10 +13,25 @@
 }
 
 .login-container h1 {
-  text-align: center;
+  text-align: left;
   font-size: 1.8em;
-  color: white;
   font-weight: 100;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.login-container a {
+  color: rgb(252, 97, 0);
+  cursor: pointer;
+}
+
+.login-container h3 {
+  margin-top: 2em;
+  margin-bottom: 20px;
+  font-weight: 100;
+  font-size: 1.2em;
+  color: rgb(57, 172, 233);
 }
 
 .login-container input[type=submit] {
@@ -32,7 +47,7 @@
   width: 100%;
   margin-bottom: 10px;
   -webkit-appearance: none;
-  background: #fff;
+  background: black;
   border: 1px solid #d9d9d9;
   border-top: 1px solid #c0c0c0;
   /* border-radius: 2px; */
@@ -89,10 +104,6 @@
   opacity: 0.6;
   transition: opacity ease 0.5s;
 } 
-
-.login-help{
-  font-size: 12px;
-}
 
 .content {
     padding-top: 30px;

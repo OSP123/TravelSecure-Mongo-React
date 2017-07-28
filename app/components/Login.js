@@ -85,15 +85,16 @@ export default class Login extends Component {
     	<div>
     		<Nav />
 				<div className="login-container">
-					<h1 className="">MEMBER ACCOUNT LOGIN</h1><br />
+					<h1 >MEMBER ACCOUNT LOGIN</h1>
+          <div className="login-help">
+            <span>Not Registered Yet? </span><Link to={"/signup"} component={Signup}>Click here.</Link>
+          </div>
+          <h3 >MEMBER LOGIN</h3>
 				  <form className="login" onSubmit={this.handleSubmit.bind(this)}>
 						<input id="username-input" ref="user" type="text" name="user" placeholder="Username" onChange={this.handleUsernameChange} value={this.state.username}/>
 						<input id="password-input" ref="password" type="password" name="pass" placeholder="Password" onChange={this.handlePasswordChange} value={this.state.password} />
 						<input type="submit" name="login" className="login loginmodal-submit" value="Login" />
 				  </form>
-				  <div className="login-help">
-						<Link to={"/signup"} component={Signup}> Register </Link>
-				  </div>
 				</div>
 			</div>
     );
