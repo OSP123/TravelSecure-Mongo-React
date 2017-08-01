@@ -24,6 +24,7 @@
     "file-loader": "^0.11.2",
     "font-awesome": "^4.6.3",
     "jquery": "^1.11.3",
+    "redux-devtools": "^3.4.0",
     "sinon": "^2.3.2",
     "sinon-mongoose": "^2.0.2",
     "style-loader": "^0.18.2",
@@ -55,7 +56,9 @@
     "passport-local": "^1.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-router-dom": "^4.1.1"
+    "react-redux": "^5.0.5",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.7.2"
   },
   "engines": {
     "node": "7.8.0"
