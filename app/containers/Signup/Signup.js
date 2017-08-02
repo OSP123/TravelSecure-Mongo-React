@@ -1,8 +1,9 @@
 // Include React
 import React, { Component } from 'react';
 import Nav from '../Nav/Nav';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import Auth from '../../utils/Auth';
 
 require('./signup.css');
 
@@ -16,7 +17,8 @@ export default class Signup extends Component {
     	password: '',
     	passwordRepeat: '',
     	email: '',
-    	emailRepeat: ''
+    	emailRepeat: '',
+      redirectToReferrer: false
     };
 
     this.handleUsernameValidation = this.handleUsernameValidation.bind(this);
@@ -161,9 +163,14 @@ export default class Signup extends Component {
         // Replace with Modal
         alert("Sorry, that username has been taken");
       } else {
+        Auth.authenticateUser(data.data.token);
+        this.setState({ 
+          redirectToReferrer: true
+        });
         console.log("It works!");
       }
-    }).catch(function(err) {
+    }.bind(this))
+    .catch(function(err) {
       console.log(err);
     });
   }
@@ -199,13 +206,22 @@ export default class Signup extends Component {
 	}
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { redirectToReferrer } = this.state;
+
+    if (redirectToReferrer) {
+      return (
+        <Redirect to={from}/>
+      )
+    }
+
     return (
     	<div>
 	    	<Nav />
 				<div id="registration-container">
 				<div className="registration-header">
 					<h1>NEW MEMBER REGISTRATION</h1>
-					<img className="registration-img" src={require("../img/registration.jpeg")} alt="Registration Image" />
+					<img className="registration-img" src={require("./img/registration.jpeg")} alt="Registration Image" />
 				</div>
 					<form onSubmit={this.handleSubmit.bind(this)}>		
 						<div className="col-md-6 registration-form-inputs">							

@@ -34,7 +34,7 @@ export default class Main extends Component {
                             </ul>
                             <a href="#about" className="btn btn-circle page-scroll">
                                 <i className="fa down-arrow animated">
-                                   <img className="down-arrow" src={require("../img/shapes/HomeDown.png")} alt="Down Arrow" />
+                                   <img className="down-arrow" src={require("./img/shapes/HomeDown.png")} alt="Down Arrow" />
                                 </i>
                             </a>
                         </div>
