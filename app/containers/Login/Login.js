@@ -1,10 +1,10 @@
 // Include React
 import React, { Component } from 'react';
-import Nav from './children/Nav';
+import Nav from '../Nav/Nav';
 import { Link, Redirect } from 'react-router-dom';
-import Signup from "./Signup";
+import Signup from "../Signup/Signup";
 import axios from 'axios';
-import Auth from './utils/Auth';
+import Auth from '../../utils/Auth';
 
 require('./login.css');
 

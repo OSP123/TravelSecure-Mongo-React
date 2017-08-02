@@ -1,6 +1,6 @@
 // Include React
 import React, { Component } from 'react';
-import Nav from './children/Nav';
+import Nav from '../Nav/Nav';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 

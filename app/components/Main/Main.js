@@ -1,6 +1,6 @@
 // Include React
 import React, { Component } from 'react';
-import Nav from './children/Nav';
+import Nav from '../../containers/Nav/Nav';
 
 require('./main.css');
 
