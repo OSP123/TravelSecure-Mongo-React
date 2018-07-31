@@ -1,13 +1,11 @@
 {
-  "name": "TravelSecure-Mongo",
-  "version": "3.3.7+1",
+  "name": "travelsecure-react",
+  "version": "1.0",
   "homepage": "https://sleepy-springs-57038.herokuapp.com/",
   "author": "Omar Patel",
-  "license": {
-    "type": "MIT"
-  },
+  "license": "MIT",
   "scripts": {
-    "dev": "webpack & node server",
+    "dev": "webpack --watch & nodemon ./server/bin/www",
     "start": "nodemon ./server/bin/www",
     "build": "webpack"
   },
@@ -41,13 +39,10 @@
     "axios": "^0.12.0",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.17.1",
-    "connect-flash": "^0.1.1",
-    "cookie-parser": "^1.4.3",
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.2",
     "jsonwebtoken": "^7.4.1",
-    "method-override": "^2.3.8",
     "mongoose": "^4.10.0",
     "morgan": "^1.8.1",
     "nodemon": "^1.11.0",
@@ -56,8 +51,5 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.1.1"
-  },
-  "engines": {
-    "node": "7.8.0"
   }
 }

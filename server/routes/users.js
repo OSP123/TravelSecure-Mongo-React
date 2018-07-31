@@ -1,12 +1,9 @@
-var express = require('express');
-var router  = express.Router();
+const express = require('express');
+const router  = express.Router();
 
-var passport = require("../config/passport");
-var users_api = require('../apis/users_api');
+const users_api = require('../apis/users_api');
 
-router.get('/sign-out', users_api.signOutUser);
-
-// router.post('/login', , users_api.loginUser);
+router.get('/logout', users_api.signOutUser);
 
 router.post('/login', users_api.loginUser);
 

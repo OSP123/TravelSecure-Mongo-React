@@ -1,8 +1,9 @@
 // Include React
 import React, { Component } from 'react';
 import Nav from './children/Nav';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import Auth from './utils/Auth';
 
 require('./signup.css');
 
@@ -153,17 +154,21 @@ export default class Signup extends Component {
 
   signUpUser(username, email, password) {
   	axios.post("/apis/users/signup", {
-      username: this.refs.username.value,
-      email: this.refs.email.value,
-      password: this.refs.password.value
+      username: username.value,
+      email: email.value,
+      password: password.value
     }).then(function(data) {
       if (data.duplicateUser) {
         // Replace with Modal
         alert("Sorry, that username has been taken");
       } else {
-        console.log("It works!");
+        this.props.authenticate();
+        Auth.authenticateStorage(data.data.token);
+        <Redirect to={{
+          pathname: '/'
+        }} />
       }
-    }).catch(function(err) {
+    }.bind(this)).catch(function(err) {
       console.log(err);
     });
   }
@@ -201,7 +206,12 @@ export default class Signup extends Component {
   render() {
     return (
     	<div>
-	    	<Nav />
+        <Nav 
+          authenticated={this.props.authenticated}
+          authenticate={this.props.authenticate}
+          deAuthenticate={this.props.deauthenticate}
+          logout={this.props.logout} 
+        />
 				<div id="registration-container" className="container-fluid">
 				    <section className="container">
 						<div className="container-page">		

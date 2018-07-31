@@ -1,8 +1,8 @@
 module.exports = function(app){
 		// Our model controllers (rather than routes)
-		var users = require('./routes/users');
-		var trips = require('./routes/trips');
-		var pricing = require('./routes/pricing');
+		const users = require('./routes/users');
+		const trips = require('./routes/trips');
+		const pricing = require('./routes/pricing');
 
 		const authCheckMiddleware = require('./config/middleware/authCheck');
 		app.use('/apis/trips', authCheckMiddleware);

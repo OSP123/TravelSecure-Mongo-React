@@ -1,10 +1,9 @@
-var User       = require('../models/User');
-var authCheck  = require('../config/middleware/authCheck');
+const User       = require('../models/User');
 const passport = require("passport");
 
-exports.signOutUser = function(req,res) {
+exports.signOutUser = function(req, res) {
   req.logout();
-  res.redirect("/");
+  console.log("logged out");
 };
 
 // login
