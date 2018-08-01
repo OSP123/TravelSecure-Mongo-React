@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 require('./nav.css');
 
-export default class Nav extends Component { 
+export default class Nav extends Component {
   render() {
     return (
       <nav className="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -25,19 +25,22 @@ export default class Nav extends Component {
                   </li>
                   
                   <li>
-                      <a className="page-scroll nav-left-text" href="/pricing/"><p>ABOUT US</p></a>
+                      <a className="page-scroll nav-left-text" href="/pricing/"><p>PRICING</p></a>
                   </li>
                   <li>
-                      <a className="page-scroll nav-left-text" href="/trips/"><p>PRICING</p></a>
+                      <a className="page-scroll nav-left-text" href="/trips/"><p>TRIPS</p></a>
                   </li>
+                  {this.props.authenticated ? (
+                    <li>
+                      <a href="#" onClick={this.props.logout} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>LOGOUT</p></div></a>
+                    </li>
+                  ) : (
+                    <li>
+                      <Link to={"/login"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>LOGIN</p></div></Link>
+                    </li>
+                  )}
                   <li>
-                      <Link to={"/login"} ><div className="page-scroll nav-left-text" href="/login" data-toggle="modal"><p>LOGIN</p></div></Link>
-                  </li>
-                  <li>
-                      <a className="page-scroll nav-left-text" href="/users/sign-out" data-toggle="modal"><p>CONTACT US</p></a>
-                  </li>
-                  <li>
-                      <a className="page-scroll nav-left-text" data-toggle="modal" data-target="#login-modal"><p>REVIEWS</p></a>
+                      <Link to={"/protected"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>PROTECTED</p></div></Link>
                   </li>
               </ul>
           </div>
@@ -59,12 +62,14 @@ export default class Nav extends Component {
                         <p>OFFLINE MODE</p>
                       </a>
                   </li>
+                  {this.props.authenticated ? (
                   <li>
                       <a className="page-scroll nav-right-text" href="/users/sign-out" data-toggle="modal">
                         <img className="navigation-icons" src={require("../../img/shapes/search.png")} />
                         <p>SEARCH LOCATION</p>
                       </a>
                   </li>
+                  ) : ""}
                   <li>
                       <a className="page-scroll nav-right-text" data-toggle="modal" data-target="#login-modal">
                         <img className="navigation-icons" src={require("../../img/shapes/itinerary.png")} />

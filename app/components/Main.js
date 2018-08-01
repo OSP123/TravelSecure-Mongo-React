@@ -1,6 +1,6 @@
 // Include React
 import React, { Component } from 'react';
-import Nav from './children/Nav';
+import Nav from './children/Nav'
 
 require('./main.css');
 
@@ -17,8 +17,12 @@ export default class Main extends Component {
   render() {
     return (
       <div>
-        <Nav />
-        
+        <Nav
+          authenticated={this.props.authenticated}
+          authenticate={this.props.authenticate}
+          deAuthenticate={this.props.deAuthenticate}
+          logout={this.props.logout}
+        />   
         <header className="intro">
             <div className="intro-body">
                 <div className="container">

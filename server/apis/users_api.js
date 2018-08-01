@@ -1,10 +1,9 @@
-var User       = require('../models/User');
-var authCheck  = require('../config/middleware/authCheck');
+const User       = require('../models/User');
 const passport = require("passport");
 
-exports.signOutUser = function(req,res) {
+exports.signOutUser = function(req, res) {
   req.logout();
-  res.redirect("/");
+  res.send({ loggedIn: false })
 };
 
 // login
@@ -48,14 +47,13 @@ exports.signUpUser = function(req,res) {
 
     // check to see if theres already a user with that email
     if (user) {
-        res.send({
-          duplicateUser: true
-        })
+        res.send({ duplicateUser: true })
     } else {
 
         // if there is no user with that email
         // create the user
-        var newUser            = new User();
+        console.log("new user", req.body);
+        const newUser       = new User();
 
         // set the user's local credentials
         newUser.username    = req.body.username;
@@ -65,7 +63,7 @@ exports.signUpUser = function(req,res) {
         // save the user
         newUser.save()
           .then(function() {
-          res.send({redirect: '/'});
+          res.send({ success: true });
         }).catch(function(err) {
           res.json(err);
         });
