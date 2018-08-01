@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Auth from '../utils/Auth';
 
 require('./nav.css');
 
-export default class Nav extends Component { 
+export default class Nav extends Component {
   render() {
     return (
       <nav className="navbar navbar-custom navbar-fixed-top" role="navigation">

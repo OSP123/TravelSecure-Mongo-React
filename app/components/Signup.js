@@ -1,9 +1,9 @@
 // Include React
 import React, { Component } from 'react';
-import Nav from './children/Nav';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 import Auth from './utils/Auth';
+import Nav from './children/Nav'
 
 require('./signup.css');
 
@@ -152,21 +152,22 @@ export default class Signup extends Component {
     }
   }
 
-  signUpUser(username, email, password) {
+  signUpUser(userData) {
   	axios.post("/apis/users/signup", {
-      username: username.value,
-      email: email.value,
-      password: password.value
+      username: userData.username,
+      email: userData.email,
+      password: userData.password
     }).then(function(data) {
+      console.log("data stuff", data.data);
       if (data.duplicateUser) {
         // Replace with Modal
         alert("Sorry, that username has been taken");
-      } else {
+      } else if (data.data.success) {
+        console.log("yay!")
         this.props.authenticate();
-        Auth.authenticateStorage(data.data.token);
-        <Redirect to={{
-          pathname: '/'
-        }} />
+        this.setState({
+          redirectToReferrer: true
+        });
       }
     }.bind(this)).catch(function(err) {
       console.log(err);
@@ -191,7 +192,7 @@ export default class Signup extends Component {
     }
 
     // If we have an email and password, run the signUpUser function
-    this.signUpUser(userData.username, userData.email, userData.password);
+    this.signUpUser(userData);
 
     this.setState({
       value: '',
@@ -199,19 +200,29 @@ export default class Signup extends Component {
     	password: '',
     	passwordRepeat: '',
     	email: '',
-    	emailRepeat: ''
+      emailRepeat: '',
+      redirectToReferrer: false
     });
 	}
 
   render() {
+    const { from } = this.props.location.state || { from: { pathname: '/' } };
+    const { redirectToReferrer } = this.state;
+
+    if (redirectToReferrer) {
+      return (
+        <Redirect to={from} />
+      )
+    }
+    
     return (
     	<div>
-        <Nav 
+        <Nav
           authenticated={this.props.authenticated}
           authenticate={this.props.authenticate}
-          deAuthenticate={this.props.deauthenticate}
-          logout={this.props.logout} 
-        />
+          deAuthenticate={this.props.deAuthenticate}
+          logout={this.props.logout}
+        />  
 				<div id="registration-container" className="container-fluid">
 				    <section className="container">
 						<div className="container-page">		

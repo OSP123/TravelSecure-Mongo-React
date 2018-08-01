@@ -1,10 +1,9 @@
 // Include React
 import React, { Component } from 'react';
-import Nav from './children/Nav';
 import { Link, Redirect } from 'react-router-dom';
 import Signup from "./Signup";
 import axios from 'axios';
-import Auth from './utils/Auth';
+import Nav from './children/Nav'
 
 require('./login.css');
 
@@ -40,7 +39,6 @@ export default class Login extends Component {
   	axios.post('/apis/users/login', submitObject)
 		.then(function(data) {
       this.props.authenticate();
-      Auth.authenticateStorage(data.data.token);
       this.setState({
         redirectToReferrer: true
       });
@@ -84,7 +82,12 @@ export default class Login extends Component {
     
     return (
     	<div>
-    		<Nav />
+        <Nav
+          authenticated={this.props.authenticated}
+          authenticate={this.props.authenticate}
+          deAuthenticate={this.props.deAuthenticate}
+          logout={this.props.logout}
+        />  
 				<div className="loginmodal-container">
 					<h1 className="">Log In to Your Account</h1><br />
 				  <form className="login" onSubmit={this.handleSubmit.bind(this)}>
