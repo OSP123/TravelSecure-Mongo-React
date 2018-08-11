@@ -17,11 +17,11 @@ passport.use(new LocalStrategy(
 
       // if no user is found, return the message
       if (!user)
-        return done(null, false); // req.flash is the way to set flashdata using connect-flash
+        return done(null, {message: "User not Found"}); // req.flash is the way to set flashdata using connect-flash
 
       // if the user is found but the password is wrong
       if (!user.validPassword(password))
-        return done(null, false); // create the loginMessage and save it to session as flashdata
+        return done(null, {message: "Invalid Password"}); // create the loginMessage and save it to session as flashdata
 
       // all is well, return successful user
       return done(null, user);

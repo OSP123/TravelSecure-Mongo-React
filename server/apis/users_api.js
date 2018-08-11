@@ -13,7 +13,7 @@ exports.loginUser = (req, res, next) => {
   // So we're sending the user back the route to the members page because the redirect will happen on the front end
   // They won't get this or even be able to access this page if they aren't authed
 
-  return passport.authenticate('local', (err, token, userData) => {
+  return passport.authenticate('local', (err, userData) => {
     if (err) {
       if (err.name === 'IncorrectCredentialsError') {
         return res.status(400).json({
@@ -27,16 +27,34 @@ exports.loginUser = (req, res, next) => {
         message: 'Could not process the form.'
       });
     }
+    if (err) {
+      console.log(err);
+      if (err.name === 'IncorrectCredentialsError') {
+          return res.status(400).json({
+              success: false,
+              message: err.message
+          });
+      }
 
-    console.log(token, "this is the token in users_api.js");
-    console.log(userData, "this is the userData in users_api.js");
+      return res.status(400).json({
+          success: false,
+          message: 'Could not process the form.'
+      });
+  }
 
-    return res.json({
+  console.log(userData, "this is the userData in users_api.js");
+  if (userData.message=="Invalid Password"||userData.message=="User not Found") {
+      return res.json({
+          success: false,
+          message: userData.message,
+          user: userData
+      })
+  }
+  else return res.json({
       success: true,
       message: 'You have successfully logged in!',
-      token,
       user: userData
-    });
+  });
   })(req, res, next);
 };
 
