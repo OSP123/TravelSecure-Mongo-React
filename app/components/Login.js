@@ -44,8 +44,7 @@ export default class Login extends Component {
           this.setState({
             redirectToReferrer: true
           });
-        }
-        else {
+        } else {
           alert(data.data.message);
         }
       }.bind(this)).catch(function (err) {
