@@ -7,6 +7,7 @@ import {
 import Main from "./Main";
 import Login from "./Login";
 import Signup from "./Signup";
+import Pricing from "./Pricing";
 import axios from 'axios';
 
 export default class MainRouter extends Component {
@@ -68,6 +69,15 @@ export default class MainRouter extends Component {
           />
           <Route exact path="/signup" render={props => 
             <Signup
+              {...props}
+              authenticate={this.authenticate}
+              deAuthenticate={this.deAuthenticate}
+              authenticated={this.state.authenticated}
+              logout={this.logout}
+            />} 
+          />
+          <Route exact path="/pricing" render={props => 
+            <Pricing
               {...props}
               authenticate={this.authenticate}
               deAuthenticate={this.deAuthenticate}

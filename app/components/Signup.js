@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import Auth from './utils/Auth';
 import Nav from './children/Nav'
 
-require('./signup.css');
+require('./Signup.css');
 
 export default class Signup extends Component { 
 
