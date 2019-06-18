@@ -76,7 +76,7 @@ export default class MainRouter extends Component {
               logout={this.logout}
             />} 
           />
-          <Route exact path="/pricing" render={props => 
+          <Route path="/pricing" render={props => 
             <Pricing
               {...props}
               authenticate={this.authenticate}

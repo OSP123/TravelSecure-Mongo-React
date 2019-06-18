@@ -7,8 +7,9 @@ export default class Pricing extends Component {
   render() {
     return (
         <div>
+            <Nav />
             <p>Yo</p>
-            {/* <Nav
+            <Nav
             authenticated={this.props.authenticated}
             authenticate={this.props.authenticate}
             deAuthenticate={this.props.deAuthenticate}
@@ -76,7 +77,7 @@ export default class Pricing extends Component {
                         </div>
                     </div>
                 </div>
-            </section> */}
+            </section>
         </div>
     );
   }
