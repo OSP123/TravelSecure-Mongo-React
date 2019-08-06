@@ -1,10 +1,11 @@
 import Nav from './children/Nav'
 import React, { Component } from 'react';
 require('./trips.css');
+import Nav from '../children/Nav';
+import Login from '../Login';
+import NewTrip from '../children/NewTrips/NewTrip';
 
-{{> nav }}
-{{> login-modal }}
-{{> new-trip-modal }}
+export default class Trip extends Component {
 <div class="all-trips-container container">
 	
 	<div class="row">
@@ -37,3 +38,4 @@ require('./trips.css');
 	<button id="add-trip-button" data-toggle="modal" data-target="#squarespaceModal" type="button" class="btn btn-circle"><i class="glyphicon glyphicon-plus"></i></button>
 	</div>
 </div>
+}
