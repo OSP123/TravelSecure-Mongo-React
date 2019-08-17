@@ -1,0 +1,160 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: rgba(0, 0, 0, 0.63);
+}
+
+.trip-subcontainer{
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  margin: 15px 0;
+  overflow: hidden;
+  color: black;
+  height: 20em;
+  padding: 0 20px 10px;
+  overflow: scroll;
+}
+
+.trip-radius{
+	border-radius:7px;
+}
+
+.trip-danger {	border-color: #d9534f; }
+
+.trip-success {	border-color: #5cb85c; }
+
+.trip-warning {	border-color: #f0ad4e; }
+
+
+.risk-analysis-container {
+	display: inline-block;
+}
+
+.bottom-trip-container {
+	
+}
+
+/* Map CSS */
+
+form, #map-places-container {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.pac-container {
+    background-color: #FFF;
+    z-index: 1052 !important;
+    position: fixed;
+    display: inline-block;
+    float: left;
+}
+
+#map {
+  width: 100%;
+  height: 300px;
+}
+
+/*#locationField, #controls {
+  position: relative;
+  width: 480px;
+}*/
+#autocomplete {
+  width: 100%;
+}
+.label {
+  text-align: right;
+  font-weight: bold;
+  width: 100%;
+  color: #303030;
+}
+#address {
+  width: 100%;
+}
+#address td {
+  font-size: 1em;
+}
+.field {
+  width: 100%;
+}
+.slimField {
+  width: 40%;
+}
+.wideField {
+  width: 60%;
+}
+#locationField {
+  height: 20px;
+  margin-bottom: 12px;
+}
+
+/* End Map CSS */
+
+.btn-circle {
+  width: 70px;
+  height: 70px;
+  font-size: 24px;
+  background: white;
+  color: #03a9f4;
+  border: solid 1px #03a9f4;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.glyphicon {
+  top: 3px;
+  left: 2px;
+}
+
+.btn-circle-number {
+	width: 70px;
+  height: 70px;
+  font-size: 24px;
+  background: white;
+  color: #03a9f4;
+  border: solid 1px #03a9f4;
+}
+
+.btn-circle:hover {
+	background: #03a9f4;
+	color: white;
+}
+
+.all-trips-container {
+	margin-top: 20%;
+}
+
+@media (min-width: 768px) {
+  .all-trips-container {
+    margin-top: 10%;
+  }
+}
+
+/* Modal CSS */
+.modal-header {
+  padding-bottom: 5px;
+}
+
+.modal-footer {
+      padding: 0;
+  }
+    
+.modal-footer .btn-group button {
+  height:40px;
+  border-top-left-radius : 0;
+  border-top-right-radius : 0;
+  border: none;
+  border-right: 1px solid #ddd;
+}
+  
+.modal-footer .btn-group:last-child > button {
+  border-right: 0;
+}
+

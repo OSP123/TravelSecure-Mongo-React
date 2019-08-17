@@ -39,9 +39,6 @@ export default class Nav extends Component {
                       <Link to={"/login"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>LOGIN</p></div></Link>
                     </li>
                   )}
-                  <li>
-                      <Link to={"/protected"} ><div className="page-scroll nav-left-text" data-toggle="modal"><p>PROTECTED</p></div></Link>
-                  </li>
               </ul>
           </div>
           <div className="collapse navbar-collapse navbar-right navbar-main-collapse1">

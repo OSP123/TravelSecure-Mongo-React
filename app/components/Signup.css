@@ -7,8 +7,12 @@ body {
 }
 
 @media (min-width: 768px) {
-  #registration-container {
-		margin-top: 10%;
+  	#registration-container {
+		margin-top: 6%;
+	}
+
+	form {
+		margin-top: 2%;
 	}
 }
 
