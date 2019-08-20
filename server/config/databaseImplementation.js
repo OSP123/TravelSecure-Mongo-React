@@ -1,6 +1,6 @@
 const mongoose 			 = require('mongoose');
 const configDB = require('./databaseCreds');
-mongoose.connect(configDB.url);
+mongoose.connect(configDB.url, { useNewUrlParser: true });
 
 //Get the default connection
 const db = mongoose.connection;
