@@ -17,25 +17,21 @@ export default class MainRouter extends Component {
     this.state = {
       authenticated: false
     };
-
-    this.logout = this.logout.bind(this);
-    this.authenticate = this.authenticate.bind(this);
-    this.deAuthenticate = this.deAuthenticate.bind(this);
   }
 
-  authenticate() {
+  authenticate = () => {
     this.setState({
       authenticated: true
     })
   }
 
-  deAuthenticate() {
+  deAuthenticate = () => {
     this.setState({
       authenticated: false
     })
   }
 
-  logout() {
+  logout = () => {
     axios.get('/apis/users/logout')
       .then(function (data) {
         this.deAuthenticate();

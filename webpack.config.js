@@ -18,9 +18,9 @@ module.exports = {
         // node modules and server files unnecessarily
         include: /app/,
         loader: "babel-loader",
-        query: {
-          // These are the specific transformations we'll be using.
-          presets: ["@babel/preset-react", "@babel/preset-env"]
+        options: {
+          presets: ["@babel/preset-react", "@babel/preset-env"],
+          plugins: ["@babel/plugin-proposal-class-properties"]
         }
       },
       {test: /\.css$/, loaders: ['style-loader', 'css-loader']},

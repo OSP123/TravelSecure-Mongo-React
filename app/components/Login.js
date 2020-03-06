@@ -15,25 +15,21 @@ export default class Login extends Component {
       password: '',
       redirectToReferrer: false
     };
-
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.loginUser = this.loginUser.bind(this);
   }
 
-  handleUsernameChange(event) {
+  handleUsernameChange = event => {
     this.setState({
       username: event.target.value
     });
   }
 
-  handlePasswordChange(event) {
+  handlePasswordChange = event => {
     this.setState({
       password: event.target.value
     });
   }
 
-  loginUser(submitObject) {
+  loginUser = submitObject => {
 
     axios.post('/apis/users/login', submitObject)
       .then(function (data) {
@@ -56,7 +52,7 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     const usernameInput = this.state.username;
     const passwordInput = this.state.password;
