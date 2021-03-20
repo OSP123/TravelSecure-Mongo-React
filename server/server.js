@@ -7,6 +7,7 @@ const bodyParser     = require('body-parser');
 const passport 			 = require("./config/passport");
 const session        = require('express-session'); 
 const config				 = require("./config/extra-config");
+const compression    = require('compression');
 
 // Express settings
 // ================
@@ -36,6 +37,7 @@ app.use(session({ secret: config.sessionKey, resave: true, saveUninitialized: tr
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(authCheck);
+app.use(compression());
 
 require('./config/databaseImplementation');
 
