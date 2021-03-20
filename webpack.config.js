@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
 
   // This is the entry point or start of our react applicaton
@@ -5,7 +7,9 @@ module.exports = {
 
   // The plain compiled JavaScript will be output into this file
   output: {
-    filename: "public/bundle.js"
+    path: path.resolve(__dirname, 'public'),
+    filename: "bundle.js",
+    publicPath: '/'
   },
 
   // This section desribes the transformations we will perform
